@@ -10,7 +10,7 @@ import About from './views/About';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Layout />,
     children: [
       {
@@ -18,17 +18,17 @@ const router = createBrowserRouter([
         element: <DefaultPage />
       },
       {
-        path: 'myPlants',
+        path: "myPlants",
         element: <MyPlants />,
       },
       {
-        path: 'About',
+        path: "About",
         element: <About />,
       },
     ],
   }
 ],{
-  basename: '/flowerplant'
+  basename: "/flowerplant"
 });
 
 function App() {

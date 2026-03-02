@@ -2,6 +2,7 @@ import defaultPageHeaderImage from "../assets/images/tanya-barrow-wMSm7fnHOEI-un
 import snakePlantImage from "../assets/images/madalyn-cox-wfE0xFOLaUY-unsplash.jpg";
 import spiderPlantImage from "../assets/images/susan-wilkinson-Mfpygdu4A0E-unsplash.jpg";
 import fiddleLeafFigImage from "../assets/images/emily-Yw-tLAhLCwk-unsplash.jpg";
+import generalInfoImage from "../assets/images/huy-phan-dM317CbttyY-unsplash.jpg";
 
 export default function DefaultPage() {
 	return (
@@ -13,8 +14,18 @@ export default function DefaultPage() {
                     <p>FlowerPlant helps plant lovers explore care guides<br/> and manage their personal collections.</p>
                 </div>
             </div>
+            <div className="general-info">
+                <h2>What your plants need</h2>
+                <div className="general-info-content">
+                    <p>
+                        Most houseplants thrive when you focus on a few simple, consistent basics. <br/><br/> Start by giving them the right light for their specific needs, then water only when the top layer of soil feels dry rather than sticking to a strict schedule. Use well-draining soil and a pot with drainage holes to protect the roots from rot, and keep leaves clean while trimming away any dead growth. Regularly checking for pests helps you catch problems early, and during the active growing season a light feeding every few weeks can encourage healthy growth—while in colder months, less water and little to no fertilizer is usually best. <br/><br/> Above all, gentle, steady care and paying attention to your plant’s leaves and soil will always work better than sudden changes.
+                    </p>
+                    <img className="general-info-image" src={generalInfoImage} alt="Indoor plants" />
+                </div>
+            </div>
             <div className="guides-section">
                 <h2>Popular Plant Guides</h2>
+
                 <div className="guides-list">
                     <div className="guides-item">
                         <img className="guide-item-image" src={snakePlantImage} alt="Snake plant" />

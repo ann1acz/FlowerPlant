@@ -75,11 +75,12 @@
     margin-top: 0;
     padding: 0.35rem 0.8rem;
     font-size: 0.85rem;
-    background-color: #f4f0dd;
+    background-color: white;
     color: #222222;
-    border: none;
+    border: 1px solid #222222;
 }
 
 .add-form .remove-image-btn:hover {
     color: #a80913;
+    border-color: #a80913;
 }

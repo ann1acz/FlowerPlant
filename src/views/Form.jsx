@@ -45,20 +45,23 @@ export default function Form() {
 
         // Always read the latest guides from localStorage first
         // to avoid stale state (outdated data) when adding multiple guides in a row.
+        
         const savedGuides = localStorage.getItem("guides");
         const existingGuides = savedGuides ? JSON.parse(savedGuides) : [];
-
+        const numericIds = existingGuides
+            .map((guide) => Number(guide.id))
+            .filter((id) => Number.isInteger(id) && id >= 0);
+        const nextId = numericIds.length > 0 ? Math.max(...numericIds) + 1 : 1;
         const newGuide = {
-            // Use a guaranteed unique id for stable list keys.
-            id: crypto.randomUUID(),
-            title: commonName,
-            author: commonName,
-            genre: scientificName,
-            chaptersread: light,
-            status: watering,
-            rating: soil,
-            level,
-            image: imageData,
+            // NumericID
+            id: nextId,
+            commonName: commonName,
+            scientificName: scientificName,
+            light: light,
+            watering: watering,
+            soil: soil,
+            level: level,
+            image: imageData || "src/assets/images/imagenotfound.png",
         };
 
         const updatedGuides = [...existingGuides, newGuide];

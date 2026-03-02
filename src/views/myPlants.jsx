@@ -17,7 +17,7 @@ export default function MyPlants() {
 			return true;
 		}
 
-		return [guide.title, guide.author, guide.genre]
+		return [guide.commonName, guide.scientificName,]
 			.filter(Boolean)
 			.some((value) => value.toLowerCase().includes(query));
 	});
@@ -62,15 +62,15 @@ export default function MyPlants() {
 								<article className="my-guide-card" key={item.id}>
 									{item.image ? <img className="my-guide-image" src={item.image} alt={item.author || item.title} /> : null}
 									<h3>Common Name</h3>
-									<p>{item.author}</p>
+									<p>{item.commonName}</p>
 									<h3>Scientific Name</h3>
-									<p>{item.genre}</p>
+									<p>{item.scientificName}</p>
 									<h3>Light</h3>
-									<p>{item.chaptersread}</p>
+									<p>{item.light}</p>
 									<h3>Watering</h3>
-									<p>{item.status}</p>
+									<p>{item.watering}</p>
 									<h3>Soil</h3>
-									<p>{item.rating}</p>
+									<p>{item.soil}</p>
 									<h3>Level</h3>
 									<p>{item.level}</p>
 									<div className="guide-actions">

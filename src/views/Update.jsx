@@ -12,7 +12,7 @@ export default function UpdateGuide() {
         return savedGuides ? JSON.parse(savedGuides) : [];
     });
 
-    const guide = guides.find((item) => item.id === id);
+    const guide = guides.find((item) => String(item.id) === id);
 
     const [commonName, setCommonName] = useState("");
     const [scientificName, setScientificName] = useState("");
@@ -28,11 +28,11 @@ export default function UpdateGuide() {
             return;
         }
 
-        setCommonName(guide.author || guide.title || "");
-        setScientificName(guide.genre || "");
-        setLight(guide.chaptersread || "");
-        setWatering(guide.status || "");
-        setSoil(guide.rating || "");
+        setCommonName(guide.commonName || guide.title || "");
+        setScientificName(guide.scientificName || "");
+        setLight(guide.light || "");
+        setWatering(guide.watering || "");
+        setSoil(guide.soil || "");
         setLevel(guide.level || "");
         setImageData(guide.image || "");
         setImageName(guide.image ? "Current image" : "");
@@ -72,18 +72,17 @@ export default function UpdateGuide() {
 
         const updatedGuide = {
             ...guide,
-            title: commonName,
-            author: commonName,
-            genre: scientificName,
-            chaptersread: light,
-            status: watering,
-            rating: soil,
-            level,
+            commonName: commonName,
+            scientificName: scientificName,
+            light: light,
+            watering: watering,
+            soil: soil,
+            level: level,
             image: imageData,
         };
 
         const updatedGuides = guides.map((item) =>
-            item.id === id ? updatedGuide : item
+            String(item.id) === id ? updatedGuide : item
         );
 
         try {

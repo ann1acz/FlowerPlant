@@ -28,7 +28,7 @@ const router = createBrowserRouter([
     ],
   }
 ],{
-  /*basename: "/flowerplant" */
+  basename: "/FlowerPlant" 
 });
 
 function App() {

@@ -5,6 +5,7 @@ import DefaultPage from './views/DefaultPage';
 import MyPlants from './views/myPlants';
 import About from './views/About';
 import Form from './views/Form';
+import UpdateGuide from './views/Update';
 
 
 
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "form",
         element: <Form />,
+      },
+      {
+        path: "edit/:id",
+        element: <UpdateGuide />,
       },
       {
         path: "About",

@@ -5,9 +5,10 @@
     width: 500px;
     margin: 2rem auto;
     padding: 3rem;
-    background-color: white;
-    color: black;
+    background-color: #ffffff;
+    color: #222222;
     text-align: left;
+    border-radius: 10px; ;
 }
 
 .add-form label {
@@ -16,11 +17,21 @@
     margin: 1rem 0 0.15rem 0;
 }
 
+.add-form h2 {
+    margin-top: -1rem;
+}
+
+.add-form p {
+    margin: 0.25rem 0;
+}
+
 .add-form input[type="text"] {
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 426px;
+    width: 480px;
+    background-color: #eeeeee;
+    color: #222222;
 }
 
 .add-form input[type="number"],
@@ -29,15 +40,19 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 200px;
+    background-color: #eeeeee;
+    color: #222222;
 }
 
 .add-form .submit-btn {
     margin-top: 1.5rem;
-    align-self: flex-start;
+    display: block;
+    margin-left: auto;
     background-color: #FFB2B9;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
+    transform: translateX(-2px);
 }
 
 .add-form .submit-btn:hover {
@@ -60,8 +75,8 @@
     margin-top: 0;
     padding: 0.35rem 0.8rem;
     font-size: 0.85rem;
-    background-color: white;
-    color: rgb(0, 0, 0);
+    background-color: #f4f0dd;
+    color: #222222;
     border: none;
 }
 

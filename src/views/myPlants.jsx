@@ -58,21 +58,27 @@ export default function MyPlants() {
 							<p className="no-guides">No plants match your search.</p>
 						) : (
 						<div className="my-guides-list">
-						{filteredGuides.map((item) => (
-							<article className="my-guide-card" key={item.id}>
-								{item.image ? <img className="my-guide-image" src={item.image} alt={item.author || item.title} /> : null}
-								<h2>{item.title}</h2>
-								<p><span className="field-label">Common name:</span> {item.author}</p>
-								<p><span className="field-label">Scientific name:</span> {item.genre}</p>
-								<p><span className="field-label">Light:</span> {item.chaptersread}</p>
-								<p><span className="field-label">Watering:</span> {item.status}</p>
-								<p><span className="field-label">Soil:</span> {item.rating}</p>
-								<p><span className="field-label">Level:</span> {item.level}</p>
-								<button className="delete-guide-button" type="button" onClick={() => handleDelete(item.id)}>
-									Delete
-								</button>
-							</article>
-						))}
+							{filteredGuides.map((item) => (
+								<article className="my-guide-card" key={item.id}>
+									{item.image ? <img className="my-guide-image" src={item.image} alt={item.author || item.title} /> : null}
+									<h3>Common Name</h3>
+									<p>{item.author}</p>
+									<h3>Scientific Name</h3>
+									<p>{item.genre}</p>
+									<h3>Light</h3>
+									<p>{item.chaptersread}</p>
+									<h3>Watering</h3>
+									<p>{item.status}</p>
+									<h3>Soil</h3>
+									<p>{item.rating}</p>
+									<h3>Level</h3>
+									<p>{item.level}</p>
+									<div className="guide-actions">
+										<button className="edit-guide-button" type="button" onClick={() => navigate(`/edit/${item.id}`)}>Edit</button>
+										<button className="delete-guide-button" type="button" onClick={() => handleDelete(item.id)}>Delete</button>
+									</div>
+								</article>
+							))}
 						</div>
 						)}
 						<button className="add-guide-button" type="button" onClick={() => navigate('/form')}>Add a Guide</button>

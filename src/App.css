@@ -185,6 +185,7 @@ button {
   gap: 0.2rem;
   background-color: #f4f0dd;
   padding: 2rem;
+  width: 300px;
   max-width: 300px;
   border-radius: 10px;
 }
@@ -197,7 +198,7 @@ button {
 
 .guides-item p {
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 0.25rem;
   font-size: 14px;
 }
 
@@ -224,5 +225,7 @@ button {
   color: #f4f0dd;
 }
 
-
+.footer h2 {
+  color: #f4f0dd;
+}
 

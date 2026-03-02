@@ -9,8 +9,8 @@ export default function DefaultPage() {
             <div className="page-hero">
                 <img className="hero-image" src={defaultPageHeaderImage} alt="Flower plants" />
                 <div className="website-intro">
-                    <h1>Welcome to Flower Plant!</h1>
-                    <p>Flower Plant helps plant lovers explore care guides<br/> and manage their personal collections.</p>
+                    <h1>Welcome to FlowerPlant!</h1>
+                    <p>FlowerPlant helps plant lovers explore care guides<br/> and manage their personal collections.</p>
                 </div>
             </div>
             <div className="guides-section">

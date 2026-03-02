@@ -1,0 +1,49 @@
+h1, p {
+    color: #222222;
+}
+
+.add-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 500px;
+    margin: 2rem auto;
+    padding: 3rem;
+    background-color: white;
+    color: black;
+    text-align: left;
+}
+
+.add-form label {
+    font-weight: 500;
+    display: block;
+    margin: 1rem 0 0.15rem 0;
+}
+
+.add-form input[type="text"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 426px;
+
+}
+
+.add-form input[type="number"], .add-form select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.add-form button {
+    margin-top: 2.5rem;
+    align-self: flex-start;
+    background-color: #7481e9;
+    color: white;
+    border: none;
+}
+
+.add-form button:hover {
+    background-color: #5a67e0;
+}
+

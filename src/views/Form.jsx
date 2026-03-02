@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/form.css";
+import ImgNotFound from "../assets/images/imagenotfound.png";
 
 export default function Form() {
     const [commonName, setCommonName] = useState("");
@@ -61,7 +62,7 @@ export default function Form() {
             watering: watering,
             soil: soil,
             level: level,
-            image: imageData || "src/assets/images/imagenotfound.png",
+            image: imageData || ImgNotFound,
         };
 
         const updatedGuides = [...existingGuides, newGuide];

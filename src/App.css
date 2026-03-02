@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Young+Serif&display=swap');
+
+.logo-nav h2 {
+    font-family: 'Young Serif', serif;
+    font-size: 1.5rem;
+}
+
+.logo-nav h2 {
+    font-family: 'Young Serif', serif;
+    font-size: 1.5rem;
+    color: #f4f0dd;
+}
+
 #root {
   width: 100%;
   min-height: 100vh;
@@ -6,11 +19,48 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-color: rgb(237, 255, 225);
+  background-color: #3B512A;
+}
+
+h1 {
+  font-family: 'Young Serif', serif;
+  color: #f4f0dd;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 3rem;
+  
+}
+
+h3, h2 {
+  font-family: 'Work Sans', sans-serif;
+  color: #222222;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+p {
+  font-family: 'Work Sans', sans-serif;
+}
+
+button {
+  border-radius: 6px;
 }
 
 .website-intro h2, .website-intro p {
   color:#222222;
+}
+
+.page-hero {
+  position: relative;
+  margin: 0;
+}
+
+.page-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.50);
+  pointer-events: none;
 }
 
 .guides-section h2 {
@@ -21,7 +71,11 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: white;
+  color: #f4f0dd;
+}
+
+.logo-nav img {
+  transform: translateY(-2px) translateX(4px);
 }
 
 .logo-nav h2 {
@@ -30,7 +84,9 @@
 
 .nav-links {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 800;
 }
 
 .header {
@@ -38,7 +94,7 @@
   top: 0;
   z-index: 1000;
   padding: 1.2rem 2rem;
-  background-color: #589b4f;
+  background-color: #628B35;
 }
 
 .header nav {
@@ -50,7 +106,7 @@
 
 .nav-links a,
 .nav-links a:visited {
-  color: white;
+  color: #f4f0dd;
   text-decoration: none;
 }
 
@@ -59,30 +115,54 @@
 }
 
 .website-intro {
-  margin-top: 6rem;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-14px);
+  z-index: 1;
+}
+
+.website-intro h2,
+.website-intro p {
+  color: #f4f0dd;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+.website-intro h1,
+.website-intro h2 {
+  margin-bottom: 0.35rem;
+}
+
+.website-intro p {
+  margin-top: 0;
 }
 
 .main {
   flex: 1;
-  padding: 1rem;
+  padding: 0;
 }
 
 .footer p {
   text-align: left;
-  color: white;
+  color: #f4f0dd;
+  font-size: 12px;
 }
 
 .footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 2rem 3rem;
-  background-color: #589b4f;
-  color: white;
+  padding: 2rem 4rem;
+  background-color: #628B35;
+  color: #f4f0dd;
 }
 
 .footer p {
   margin: 0.2rem 0;
+  font-size: 16px;
 }
 
 .guides-section {
@@ -102,20 +182,47 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  gap: 0.4rem;
-  background-color: #589b4f;
+  gap: 0.2rem;
+  background-color: #f4f0dd;
   padding: 2rem;
   max-width: 300px;
+  border-radius: 10px;
 }
 
 .guides-item h3,
 .guides-item p {
   margin: 0;
+  color: #222222;
 }
 
 .guides-item p {
   text-align: left;
   margin-bottom: 20px;
+  font-size: 14px;
 }
+
+.guide-item-image {
+  width: calc(100% + 4rem);
+  height: 240px;
+  object-fit: cover;
+  margin-left: -2rem;
+  margin-right: -2rem;
+  margin-top: -2rem;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 0.75rem;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  margin-bottom: 3rem;
+}
+
+.guides-section h2 {
+  color: #f4f0dd;
+}
+
 
 

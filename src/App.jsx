@@ -4,6 +4,7 @@ import './App.css';
 import DefaultPage from './views/DefaultPage';
 import MyPlants from './views/myPlants';
 import About from './views/About';
+import Form from './views/Form';
 
 
 
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "myPlants",
         element: <MyPlants />,
+      },
+      {
+        path: "form",
+        element: <Form />,
       },
       {
         path: "About",

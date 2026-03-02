@@ -1,102 +1,106 @@
-import { useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./pageone.css";
+import "../css/form.css";
 
-export default function PageOne() {
-
-    const [series, setSeries] = useState(() => {
-        const savedSeries = localStorage.getItem("series");
-        return savedSeries ? JSON.parse(savedSeries) : [];
-    });
-
-    const [title, setTitle] = useState("");
-    const [author, setAuthor] = useState("");
-    const [genre, setGenre] = useState("");
-    const [chaptersReadCount, setChaptersReadCount] = useState("");
-    const [chaptersTotalCount, setChaptersTotalCount] = useState("");
-    const [status, setStatus] = useState("");
-    const [rating, setRating] = useState("");
+export default function Form() {
+    const [commonName, setCommonName] = useState("");
+    const [scientificName, setScientificName] = useState("");
+    const [light, setLight] = useState("");
+    const [watering, setWatering] = useState("");
+    const [soil, setSoil] = useState("");
+    const [level, setLevel] = useState("");
+    const [imageData, setImageData] = useState("");
+    const [imageName, setImageName] = useState("");
+    const imageInputRef = useRef(null);
 
     let navigate = useNavigate();
 
-    useEffect(() => {
-        localStorage.setItem("series", JSON.stringify(series));
-    }, [series]);
+    function handleImageChange(e) {
+        const file = e.target.files?.[0];
+        if (!file) {
+            setImageData("");
+            setImageName("");
+            return;
+        }
+
+        setImageName(file.name);
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setImageData(typeof reader.result === "string" ? reader.result : "");
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function removeImage() {
+        setImageData("");
+        setImageName("");
+        if (imageInputRef.current) {
+            imageInputRef.current.value = "";
+        }
+    }
 
     function createHandler(e) {
         e.preventDefault();
-        const chaptersread = `${chaptersReadCount}/${chaptersTotalCount}`;
-        const newSeries = { id: Date.now(), title, author, genre, chaptersread, status, rating };
-        const updatedSeries = [...series, newSeries];
-        setSeries(updatedSeries);
-        localStorage.setItem("series", JSON.stringify(updatedSeries));
-        navigate('/pagetwo'); 
+
+        // Always read the latest guides from localStorage first
+        // to avoid stale state (outdated data) when adding multiple guides in a row.
+        const savedGuides = localStorage.getItem("guides");
+        const existingGuides = savedGuides ? JSON.parse(savedGuides) : [];
+
+        const newGuide = {
+            // Use a guaranteed unique id for stable list keys.
+            id: crypto.randomUUID(),
+            title: commonName,
+            author: commonName,
+            genre: scientificName,
+            chaptersread: light,
+            status: watering,
+            rating: soil,
+            level,
+            image: imageData,
+        };
+
+        const updatedGuides = [...existingGuides, newGuide];
+
+        try {
+            // Saving can fail when localStorage quota is exceeded (often due to large images).
+            localStorage.setItem("guides", JSON.stringify(updatedGuides));
+            navigate('/myPlants');
+        } catch {
+            alert("Could not save guide. Try a smaller image or remove old guides.");
+        }
     }
 
 	return (
         <div className="add-form">
-        <h2>Add New Series</h2>
+        <h2>Add a Guide</h2>
         <form  onSubmit={createHandler}>
-            <label htmlFor="title">Title:</label>
-            <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} /><br/>
-            <label htmlFor="author">Author:</label>
-            <input type="text" placeholder="Author" value={author} onChange={(e) => setAuthor(e.target.value)} /><br/>
-            <label htmlFor="genre">Genre:</label>
-            <select id="genre" value={genre} onChange={(e) => setGenre(e.target.value)}>
-                <option value="">Select genre</option>
-                <option value="Action">Action</option>
-                <option value="Romance">Romance</option>
-                <option value="Fantasy">Fantasy</option>
-                <option value="Drama">Drama</option>
-                <option value="Comedy">Comedy</option>
-                <option value="Slice of Life">Slice of Life</option>
-                <option value="Horror">Horror</option>
-                <option value="Sci-fi">Sci-fi</option>
-                <option value="Thriller">Thriller</option>
+            <label htmlFor="common-name">Common name:</label>
+            <input id="common-name" type="text" placeholder="Common name" value={commonName} onChange={(e) => setCommonName(e.target.value)} required /><br/>
+            <label htmlFor="scientific-name">Scientific name:</label>
+            <input id="scientific-name" type="text" placeholder="Scientific name" value={scientificName} onChange={(e) => setScientificName(e.target.value)} required /><br/>
+            <label htmlFor="light">Light:</label>
+            <input id="light" type="text" placeholder="Light requirements" value={light} onChange={(e) => setLight(e.target.value)} required /> <br/>
+            <label htmlFor="watering">Watering:</label>
+            <input id="watering" type="text" placeholder="Watering requirements" value={watering} onChange={(e) => setWatering(e.target.value)} required /> <br/>
+            <label htmlFor="soil">Soil:</label>
+            <input id="soil" type="text" placeholder="Soil requirements" value={soil} onChange={(e) => setSoil(e.target.value)} required /> <br/>
+            <label htmlFor="level">Level:</label>
+            <select id="level" value={level} onChange={(e) => setLevel(e.target.value)} required>
+                <option value="">Select level</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
             </select> <br/>
-            <label htmlFor="chaptersread">Chapters Read:</label>
-            <input
-                id="chaptersread"
-                type="number"
-                min="0"
-                placeholder="read chapters"
-                value={chaptersReadCount}
-                onChange={(e) => setChaptersReadCount(e.target.value)}
-            />
-            <span>/</span>
-            <input
-                type="number"
-                min="0"
-                placeholder="total chapters"
-                value={chaptersTotalCount}
-                onChange={(e) => setChaptersTotalCount(e.target.value)}
-            /> <br/>
-            <label htmlFor="status">Status:</label>
-            <select id="status" value={status} onChange={(e) => setStatus(e.target.value)}>
-                <option value="">Select status</option>
-                <option value="Reading">Reading</option>
-                <option value="Completed">Completed</option>
-                <option value="On Hold">On Hold</option>
-                <option value="Dropped">Dropped</option>
-                <option value="Plan to Read">Plan to Read</option>
-            </select> <br/>
-            <label htmlFor="rating">Rating:</label>
-            <select id="rating" value={rating} onChange={(e) => setRating(e.target.value)}>
-                <option value="">Select rating</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <span>/10</span>
-            </select>
-            <span>/10</span> <br/>
-            <button type="submit">Add</button>
+            <label htmlFor="guide-image">Upload image:</label>
+            <div className="image-input-row">
+                <input id="guide-image" type="file" accept="image/*" onChange={handleImageChange} ref={imageInputRef} />
+                {imageData && (
+                    <button className="remove-image-btn" type="button" onClick={removeImage}>Remove image</button>
+                )}
+            </div>
+            <button className="submit-btn" type="submit">Add</button>
         </form>
         </div>
     )

@@ -1,14 +1,23 @@
+import defaultPageHeaderImage from "../assets/images/tanya-barrow-wMSm7fnHOEI-unsplash.jpg";
+import snakePlantImage from "../assets/images/madalyn-cox-wfE0xFOLaUY-unsplash.jpg";
+import spiderPlantImage from "../assets/images/susan-wilkinson-Mfpygdu4A0E-unsplash.jpg";
+import fiddleLeafFigImage from "../assets/images/emily-Yw-tLAhLCwk-unsplash.jpg";
+
 export default function DefaultPage() {
 	return (
         <>
-            <div className="website-intro">
-                <h2>Welcome to Flower Plant!</h2>
-                <p>We are a platform dedicated to plant enthusiasts, helping you take care of your plants and discover new ones.</p>
+            <div className="page-hero">
+                <img className="hero-image" src={defaultPageHeaderImage} alt="Flower plants" />
+                <div className="website-intro">
+                    <h1>Welcome to Flower Plant!</h1>
+                    <p>Flower Plant helps plant lovers explore care guides<br/> and manage their personal collections.</p>
+                </div>
             </div>
             <div className="guides-section">
                 <h2>Popular Plant Guides</h2>
                 <div className="guides-list">
                     <div className="guides-item">
+                        <img className="guide-item-image" src={snakePlantImage} alt="Snake plant" />
                         <h3>Common Name</h3>
                         <p>Snake plant</p>
                         <h3>Scientific Name</h3>
@@ -23,6 +32,7 @@ export default function DefaultPage() {
                         <p>Beginner</p>
                     </div>
                     <div className="guides-item">
+                        <img className="guide-item-image" src={spiderPlantImage} alt="Spider plant" />
                         <h3>Common Name</h3>
                         <p>Spider plant</p>
                         <h3>Scientific Name</h3>
@@ -37,6 +47,7 @@ export default function DefaultPage() {
                         <p>Intermediate</p>
                     </div>
                     <div className="guides-item">
+                        <img className="guide-item-image" src={fiddleLeafFigImage} alt="Fiddle-Leaf Fig" />
                         <h3>Common Name</h3>
                         <p>Fiddle-Leaf Fig</p>
                         <h3>Scientific Name</h3>

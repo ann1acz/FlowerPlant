@@ -1,49 +1,109 @@
-h1, p {
+.my-guides-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.my-plants-search {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.my-plants-search input {
+    width: 360px;
+    max-width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    background-color: #f4f0dd;
     color: #222222;
 }
 
-.add-form {
+.my-guide-card {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    width: 500px;
-    margin: 2rem auto;
-    padding: 3rem;
-    background-color: white;
-    color: black;
+    align-items: flex-start;
+    gap: 0.2rem;
+    background-color: #f4f0dd;
+    padding: 2rem;
+    width: 260px;
+    max-width: 300px;
+    border-radius: 10px;
     text-align: left;
 }
 
-.add-form label {
+.my-guide-card h2 {
+    margin: 0;
+    color: #222222;
+}
+
+.my-guide-image {
+    width: calc(100% + 4rem);
+    height: 240px;
+    object-fit: cover;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    margin-top: -2rem;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 0.75rem;
+}
+
+.my-guide-card p {
+    margin: 0;
+    color: #222222;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.my-guide-card .field-label {
     font-weight: 500;
-    display: block;
-    margin: 1rem 0 0.15rem 0;
 }
 
-.add-form input[type="text"] {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 426px;
-
-}
-
-.add-form input[type="number"], .add-form select {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 200px;
-}
-
-.add-form button {
-    margin-top: 2.5rem;
-    align-self: flex-start;
-    background-color: #7481e9;
+.add-guide-button {
+    margin-top: 1.5rem;
+    background-color: #FFB2B9;
     color: white;
     border: none;
+    padding: 0.5rem 1rem;
 }
 
-.add-form button:hover {
-    background-color: #5a67e0;
+.add-guide-button:hover {
+    background-color: #FF7F87;
+}
+
+.delete-guide-button {
+    margin-top: auto;
+    margin-left: auto;
+    background-color: #FFB2B9;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+}
+
+.delete-guide-button:hover {
+    background-color: #FF7F87;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 4rem;
+
+}
+
+.no-guides {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 2rem;
+}
+
+.add-guide-button {
+    display: block;
+    margin: 4rem auto;
 }
 

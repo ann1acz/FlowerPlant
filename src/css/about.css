@@ -1,0 +1,11 @@
+.about-section {
+  max-width: 780px;
+  margin: 3rem auto 5rem;
+  padding: 0 1rem;
+}
+
+.about-section p {
+  color: #f4f0dd;
+  line-height: 1.7;
+  margin: 0;
+}

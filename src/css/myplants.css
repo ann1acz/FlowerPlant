@@ -43,13 +43,8 @@
     color: #222222;
 }
 
-.my-guide-card p {
-    margin-bottom: 2rem;
-    color: #222222;
-}
-
-.my-guide-card h3 {
-    margin-bottom: 0.1rem;
+.my-guide-card h3 + p {
+    margin-top: -0.3rem;
 }
 
 .my-guide-image {
@@ -65,12 +60,12 @@
 
 .my-guide-card p {
     text-align: left;
-    margin-bottom: 0.25rem;
+    margin-bottom: 1em;
     font-size: 14px;
 }
 
 .add-guide-button {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     background-color: #FFB2B9;
     color: white;
     border: none;

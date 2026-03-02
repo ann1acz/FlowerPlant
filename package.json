@@ -1,5 +1,5 @@
 {
-  "homepage": "https://<ann1acz>.github.io/<your-repo-name>",
+  "homepage": "https://ann1acz.github.io/FlowerPlant",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"

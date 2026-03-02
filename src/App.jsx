@@ -24,10 +24,12 @@ const router = createBrowserRouter([
       {
         path: 'About',
         element: <About />,
-      }
-    ]
+      },
+    ],
   }
-]);
+],{
+  basename: '/FlowerPlant'
+});
 
 function App() {
   return <RouterProvider router={router} />;
